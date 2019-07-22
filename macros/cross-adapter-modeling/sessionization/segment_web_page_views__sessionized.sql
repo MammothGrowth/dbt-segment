@@ -33,12 +33,10 @@ with pageviews as (
         from {{ref('segment_web_page_views')}} 
         where tstamp >= (
           select {{
-            dbt_utils.safe_cast(
               dbt_utils.dateadd(
                 'hour',
                 -var('segment_sessionization_trailing_window'),
-                'max(tstamp)'),
-              'timestamp') }}
+                'max(tstamp)') }}
           from {{ this }})
         )
     {% endif %}

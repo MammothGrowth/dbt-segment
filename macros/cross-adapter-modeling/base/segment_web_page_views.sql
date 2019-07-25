@@ -9,7 +9,7 @@
 
 with source as (
 
-    select * from {{var('segment_page_views_table')}}
+    select * from {{source(var('segment_page_views_source_name'), var('segment_page_views_source_table'))}}
     
 ),
 

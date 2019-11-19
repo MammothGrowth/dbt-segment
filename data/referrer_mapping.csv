@@ -85,12 +85,14 @@ social,Buzznet,wayn.com
 social,Google+,url.google.com
 social,Google+,plus.google.com
 social,LinkedIn,linkedin.com
+social,LinkedIn,www.linkedin.com
 social,LinkedIn,lnkd.in
 social,BlackPlanet,blackplanet.com
 social,Bebo,bebo.com
 social,Skyrock,skyrock.com
 social,Eksi Sozluk,Sozluk.com
 social,Eksi Sozluk,sourtimes.org
+social,Facebook,www.facebook.com
 social,Facebook,facebook.com
 social,Facebook,fb.me
 social,Facebook,m.facebook.com
@@ -99,6 +101,7 @@ social,Facebook,lm.facebook.com
 social,vKruguDruzei.ru,vkrugudruzei.ru
 social,MyHeritage,myheritage.com
 social,Youtube,youtube.com
+social,Youtube,www.youtube.com
 social,Youtube,youtu.be
 social,MyLife,mylife.ru
 social,Douban,douban.com
@@ -2092,6 +2095,7 @@ search,Yahoo!,one.cn.yahoo.com
 search,Yahoo!,one.searchn.yahoo.com
 search,Yahoo!,qc.search.yahoo.com
 search,Yahoo!,qc.yahoo.com
+search,Yahoo!,r.search.yahoo.com
 search,Yahoo!,se.search.yahoo.com
 search,Yahoo!,se.yahoo.com
 search,Yahoo!,search.searcharch.yahoo.com
@@ -2164,3 +2168,6 @@ unknown,Yahoo!,cars.yahoo.com
 unknown,Yahoo!,lifestyle.yahoo.com
 unknown,Yahoo!,omg.yahoo.com
 unknown,Yahoo!,match.yahoo.net
+display,Google,tpc.googlesyndication.com
+display,Google,googleads.g.doubleclick.net
+display,Google,imasdk.googleapis.com

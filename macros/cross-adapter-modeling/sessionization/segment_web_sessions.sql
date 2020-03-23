@@ -13,17 +13,6 @@
     sort = 'session_start_tstamp',
     dist = 'session_id'
     )}}
-    
-{% set sessionization_cutoff = "
-(
-    select {{
-            dbt_utils.dateadd(
-                'hour',
-                -var('segment_sessionization_trailing_window'),
-                'max(session_start_tstamp)') }}
-    from {{this}}
-)    
-" %}
 
 {# 
 Window functions are challenging to make incremental. This approach grabs 
@@ -38,7 +27,15 @@ with sessions as (
     select * from {{ref('segment_web_sessions__stitched')}}
     
     {% if is_incremental() %}
-    where session_start_tstamp > {{sessionization_cutoff}}
+    where session_start_tstamp > 
+    (
+        select {{
+                dbt_utils.dateadd(
+                    'hour',
+                    -var('segment_sessionization_trailing_window'),
+                    'max(session_start_tstamp)') }}
+        from {{this}}
+    )        
     {% endif %}
 
 ),
@@ -53,7 +50,16 @@ agg as (
     from {{this}}
     
     -- only include sessions that are not going to be resessionized in this run
-    where session_start_tstamp <= {{sessionization_cutoff}}
+    where session_start_tstamp <= 
+    (
+        select {{
+                dbt_utils.dateadd(
+                    'hour',
+                    -var('segment_sessionization_trailing_window'),
+                    'max(session_start_tstamp)') }}
+        from {{this}}
+    )        
+    
 
     group by 1
 
